@@ -1,0 +1,72 @@
+<!-- home.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="/home.css">
+</head>
+<body>
+    <h1>Welcome to Basic Blog Platform <%= user.name %>!</h1>
+    <a class="abc" href="/">Back to login</a> 
+    <form method="post" action="/addpost"> 
+        <div class="form_group"> 
+            <label for="post">Post:</label>
+            <input type="text" id="post" name="post" placeholder="Add post" required autocomplete="off">
+            <button type="submit" class="submit_btn">Add</button>
+        </div>
+    </form>
+
+    <!-- Loop through posts and display post details, update and delete buttons -->
+    <% for (let i = 0; i < posts.length; i++) { %>
+        <div>
+            <h2><%= posts[i].title %></h2>
+            <p>
+                <%= posts[i].userId?.name || "Unknown User" %>
+            </p>
+            
+            <!-- Add the Update button and form only if the post belongs to the logged-in user -->
+            <% if (posts[i].userId && posts[i].userId._id.toString() === user._id.toString()) { %>
+                <form action="/updatepost/<%= posts[i]._id %>" method="get">
+                    <button type="submit">Update</button>
+                </form>
+            <% } %>
+
+            <form action="/deletepost/<%= posts[i]._id %>" method="post">
+                <button type="submit">Delete</button>
+            </form>
+
+            <!-- Display comments -->
+            <ul>
+                <% for (let j = 0; j < posts[i].comments.length; j++) { %>
+                    <li>
+                        <p>
+                            <strong>
+                                <%= posts[i].comments[j].userId?.name || "Unknown User" %>:
+                            </strong>
+                            <%= posts[i].comments[j].text %>
+                        </p>
+                        <!-- Add the Delete Comment button and form only if the comment belongs to the logged-in user -->
+                        <% if (posts[i].comments[j].userId && posts[i].comments[j].userId._id.toString() === user._id.toString()) { %>
+                            <form action="/deletecomment/<%= posts[i]._id %>/<%= posts[i].comments[j]._id %>" method="post">
+                                <button type="submit">Delete Comment</button>
+                            </form>
+                        <% } %>
+                    </li>
+                <% } %>
+            </ul>
+
+            <!-- Add Comment Form -->
+            <form action="/addcomment/<%= posts[i]._id %>" method="post">
+                <div class="form_group"> 
+                    <label for="comment">Leave a Comment:</label>
+                    <input type="text" id="comment" name="comment" placeholder="Add comment" required autocomplete="off">
+                    <button type="submit" class="add_comment_btn">Add Comment</button>
+                </div>
+            </form>
+        </div>
+    <% } %>
+</body>
+</html>

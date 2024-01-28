@@ -1,0 +1,27 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/login_signup.css">
+    <title>Signup</title>
+  </head>
+  <body>
+    <div class="form_container">
+      <h2>SignUp </h2>
+      <form method="post" action="/signup">
+        <div class="form_group"> 
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="username" placeholder="Enter your name" required autocomplete="off" >
+        </div>
+        <div class="form_group">
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password" pattern="^(?=.*[A-Z])(?=.*\d).{5,}$" title="Password must contain at least one uppercase letter, one digit, and be at least 5 characters long" placeholder="Password" required>
+        </div>
+        <button type="submit" class="submit_btn">SignUp</button>
+      </form>
+      <a class="signup_a" href="/"> Back to login</a>
+    </div>
+  </body>
+</html>

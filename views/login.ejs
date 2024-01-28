@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/login_signup.css" />
+    <title>Login</title>
+  </head>
+  <body>
+    <div class="form_container">
+      <h2>Login</h2>
+      <form method="post" action="/home">
+        <div class="form_group">
+          <label for="name">Name:</label>
+          <input
+            type="text"
+            id="name"
+            name="username"
+            placeholder="Enter your name"
+            required
+            autocomplete="off"
+          />
+        </div>
+        <div class="form_group">
+          <label for="password">Password:</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+        </div>
+        <button type="submit" class="submit_btn">Login</button>
+      </form>
+      <p>Don't have an account? <a href="/signup">Signup</a></p>
+
+      <a class="change_pass" href="/changepassword">Change Password</a>
+    </div>
+  </body>
+</html>

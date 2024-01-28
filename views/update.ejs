@@ -1,0 +1,22 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Post</title>
+    <link rel="stylesheet" href="/update.css">
+</head>
+<body>
+    <h1> Update Post </h1>
+    <form method="post" action="/updatepost/<%= post._id %>">
+        <div class="form_group">
+            <label for="updatedTitle">Updated Title:</label>
+            <input type="text" id="updatedTitle" name="updatedTitle" value="<%= post.title %>" required autocomplete="off">
+            <button type="submit" class="submit_btn">Update</button>
+        </div>
+    </form>
+</body>
+</html>
+
