@@ -1,6 +1,5 @@
 # Basic Blog Platform
-<img width="1470" alt="Screenshot 2024-01-28 at 15 41 55" src="https://github.com/garik10/Basic_Blog_Platform/assets/120120468/b7e2e321-c956-410c-b867-39452f86cc15">
-
+<img width="837" alt="Screenshot 2024-01-28 at 20 08 09" src="https://github.com/garik10/Basic_Blog_Platform/assets/120120468/b47074cf-bafe-4020-b67c-1804e13e2426">
 ## Description
 
 A simple blog platform using Express, MongoDB, and EJS templates.
